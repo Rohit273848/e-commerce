@@ -11,19 +11,19 @@ export default function Navbar() {
                     </a>
                 </div>
                 <ul className="flex gap-9">
-                    <li><a href="#"className="transition-colors hover:text-white">Home</a></li>
-                    <li><a href="#"className="transition-colors hover:text-white">Products</a></li>
-                    <li><a href="#"className="transition-colors hover:text-white">About</a></li>
-                    <li><a href="#"className="transition-colors hover:text-white">Contact</a></li>
+                    <li><a href="#" className="transition-colors hover:text-white">Home</a></li>
+                    <li><a href="#" className="transition-colors hover:text-white">Products</a></li>
+                    <li><a href="#" className="transition-colors hover:text-white">About</a></li>
+                    <li><a href="#" className="transition-colors hover:text-white">Contact</a></li>
                 </ul>
                 <div className="flex gap-10" >
                     <div className="flex gap-3 ">
                         <button className="cursor-pointer rounded-full bg-dark px-5 py-2 text-sm font-medium text-white transition hover:opacity-90">Login</button>
                         <button className="cursor-pointer rounded-full bg-dark px-5 py-2 text-sm font-medium text-white transition hover:opacity-90"> Register</button>
                     </div>
-                    <a href="#" >
-                        <i className="ri-shopping-cart-line"></i>
-                    </a>
+                    <button className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full transition hover:bg-dark hover:text-white">
+                        <i className="ri-shopping-cart-line text-xl"></i>
+                    </button>
                 </div>
 
             </nav>
