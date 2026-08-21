@@ -1,47 +1,6 @@
-TASK 3: Create the Products Page
+learn this 
+1. Nested Routes
+2. Outlet
+3. Layout Component
 
-Now build your Products page.
-
-Your goal
-
-When the user clicks PRODUCTS in the navbar, they should see a dedicated products page.
-
-For now, use static product data. Do not connect MongoDB yet.
-
-The page should contain:
-
-Page heading: Our Products
-A product grid
-At least 4 products
-Each product card should have:
-Product image
-Product name
-Price
-Short description
-View Product button
-Important
-
-You should decide yourself:
-
-Component structure
-Product card design
-Grid columns
-Spacing
-Tailwind classes
-How you store the temporary product data
-
-Don't worry about:
-
-MongoDB
-Express API
-Authentication
-Seller functionality
-Add to cart
-Real product images from backend
-Concept you'll learn
-
-This task is mainly about:
-
-React components + arrays + rendering lists with .map()
-
-You should understand why you're using .map(), not just make it work.
+https://chatgpt.com/g/g-p-6a819deee720819186dea72c24a2897c/c/6a81a811-4ce0-83ee-912e-dfe550ba0a39

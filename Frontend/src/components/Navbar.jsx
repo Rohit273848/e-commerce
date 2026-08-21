@@ -3,7 +3,7 @@ import logo from '../assets/logo.png'
 export default function Navbar() {
     return (
         <>
-            <nav className="flex bg-primary text-dark rounded-4xl justify-between items-center text-lg uppercase  px-6 py-2 font-sans 
+            <nav className="flex bg-primary text-dark rounded-4xl justify-between items-center text-lg uppercase  px-6 py-2 m-5 font-sans 
 ">
                 <div>
                     <a href="">
@@ -11,10 +11,10 @@ export default function Navbar() {
                     </a>
                 </div>
                 <ul className="flex gap-9">
-                    <li><a href="#" className="transition-colors hover:text-white">Home</a></li>
-                    <li><a href="#" className="transition-colors hover:text-white">Products</a></li>
-                    <li><a href="#" className="transition-colors hover:text-white">About</a></li>
-                    <li><a href="#" className="transition-colors hover:text-white">Contact</a></li>
+                    <li><a href="/home" className="transition-colors hover:text-white">Home</a></li>
+                    <li><a href="/products" className="transition-colors hover:text-white">Products</a></li>
+                    <li><a href="/about" className="transition-colors hover:text-white">About</a></li>
+                    <li><a href="/contect" className="transition-colors hover:text-white">Contact</a></li>
                 </ul>
                 <div className="flex gap-10" >
                     <div className="flex gap-3 ">
