@@ -43,3 +43,17 @@ export const createProduct =  async (req,res)=>{
         })
     }
 }
+
+export const getProduct = async (req,res)=>{
+    try{const product =await productModel.find();
+    res.status(200).json({
+        products
+    })}
+    catch(err){
+        console.log("product not fetch due to:",err);
+        res.status(500).json({
+            success:false,
+            message:err.message,
+        })
+    }
+}
