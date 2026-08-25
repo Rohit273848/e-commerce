@@ -1,14 +1,14 @@
 import productModel from "../models/Product.models.js"
 import StorageService from "../services/storage.services.js";
 
-export const createProduct =  async (req,res)=>{
-    try{
-        let { title, description, price, category,stock} = req.body;
-        
-        if(!title||!description||!price||!category||stock==undefined){
+export const createProduct = async (req, res) => {
+    try {
+        let { title, description, price, category, stock } = req.body;
+
+        if (!title || !description || !price || !category || stock == undefined) {
             return res.status(400).json({
-                success:false,
-                message:"All fields (title,description , price ,category , stock) are requireed"
+                success: false,
+                message: "All fields (title,description , price ,category , stock) are requireed"
             })
         }
 
@@ -18,7 +18,7 @@ export const createProduct =  async (req,res)=>{
             });
         }
 
-        const images =await StorageService(req.files);
+        const images = await StorageService(req.files);
         const product = await productModel.create({
             title,
             description,
@@ -34,26 +34,44 @@ export const createProduct =  async (req,res)=>{
         })
 
 
-    }catch(err){
-        console.error("create product error:" ,err);
-        
+    } catch (err) {
+        console.error("create product error:", err);
+
         res.status(500).json({
-            success:false,
-            message:err.message||"Internal server error"
+            success: false,
+            message: err.message || "Internal server error"
         })
     }
 }
 
-export const getProduct = async (req,res)=>{
-    try{const product =await productModel.find();
-    res.status(200).json({
-        products
-    })}
-    catch(err){
-        console.log("product not fetch due to:",err);
+export const getProducts = async (req, res) => {
+    try {
+        const product = await productModel.find();
+        res.status(200).json({
+            products
+        })
+    }
+    catch (err) {
+        console.log("product not fetch due to:", err);
         res.status(500).json({
-            success:false,
-            message:err.message,
+            success: false,
+            message: err.message,
+        })
+    }
+}
+
+export const getProduct = async (req, res) => {
+    try {
+        const _id = req.params.id;
+        const product = await productModel.findOne({ _id });
+        res.status(200).json({
+            product
+        })
+    } catch (err) {
+        console.log("product not found due to:", err);
+        res.status(500).json({
+            success: false,
+            message: err.message,
         })
     }
 }
