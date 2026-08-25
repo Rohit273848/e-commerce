@@ -211,7 +211,7 @@ export default function Cart() {
                                     <div className="p-4 flex gap-4 items-start">
                                         
                                         {/* Product Thumbnail */}
-                                        <div className="w-20 h-20 sm:w-24 sm:h-24 rounded border border-gray-100 overflow-hidden flex-shrink-0 bg-gray-50">
+                                        <div className="w-20 h-20 sm:w-24 sm:h-24 rounded border border-gray-100 overflow-hidden shrink-0 bg-gray-50">
                                             <img
                                                 src={item.image}
                                                 alt={item.title}
@@ -356,7 +356,7 @@ export default function Cart() {
 
                         {/* 4. Green Discount Celebration Badge */}
                         <div className="bg-[#e6f8f0] text-[#038d65] p-3 rounded-md text-xs sm:text-sm font-medium flex items-center gap-2 border border-emerald-100">
-                            <span className="w-5 h-5 rounded-full bg-[#038d65] text-white flex items-center justify-center text-xs flex-shrink-0">
+                            <span className="w-5 h-5 rounded-full bg-[#038d65] text-white flex items-center justify-center text-xs shrink-0">
                                 %
                             </span>
                             <span>Yay! Your total discount is ₹{totalDiscount}</span>
@@ -378,7 +378,7 @@ export default function Cart() {
                         {/* 7. Safety / Trust Priority Card */}
                         <div className="mt-4 pt-4 border-t border-gray-100">
                             <div className="bg-gray-50 rounded-lg p-3 flex items-center gap-3 border border-gray-100">
-                                <div className="w-10 h-10 rounded-full bg-dark/10 text-dark flex items-center justify-center text-lg flex-shrink-0">
+                                <div className="w-10 h-10 rounded-full bg-dark/10 text-dark flex items-center justify-center text-lg shrink-0">
                                     <i className="ri-shield-check-line"></i>
                                 </div>
                                 <div>

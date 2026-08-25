@@ -79,7 +79,7 @@ export default function ProductDetails() {
                     <img
                         src={product.image}
                         alt={product.title}
-                        className="w-full max-h-[500px] object-contain"
+                        className="w-full max-h-125 object-contain"
                     />
                 </div>
 
