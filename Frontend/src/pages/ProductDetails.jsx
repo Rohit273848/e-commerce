@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { products } from "./Products";
+import { useDispatch } from "react-redux";
+import { addToCart,increaseQuantity,dicreaseQuantity } from "../features/cart/cartSlice";
+import { useEffect } from "react";
 
 export default function ProductDetails() {
+    const dispatch = useDispatch();
     // State for size selection and quantity count
     const sizes = ['S', 'M', 'L', 'XL', 'XXL'];
     const [selectedSize, setSelectedSize] = useState('M');
@@ -39,6 +43,13 @@ export default function ProductDetails() {
             </div>
         );
     }
+     
+     function handleAddToCart(){
+            dispatch(addToCart(product));
+            
+            
+
+    }
 
     return (
         <div className="min-h-screen py-10 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
@@ -68,7 +79,7 @@ export default function ProductDetails() {
                     <img
                         src={product.image}
                         alt={product.title}
-                        className="w-full max-h-[500px] object-contain group-hover:scale-105 transition-transform duration-300 ease-in-out"
+                        className="w-full max-h-[500px] object-contain"
                     />
                 </div>
 
@@ -124,11 +135,10 @@ export default function ProductDetails() {
                                 <button
                                     key={size}
                                     onClick={() => setSelectedSize(size)}
-                                    className={`w-12 h-12 rounded-xl text-sm font-semibold transition-all border cursor-pointer ${
-                                        selectedSize === size
-                                            ? "bg-dark text-white border-dark shadow-sm"
-                                            : "bg-white text-dark border-gray-200 hover:border-dark"
-                                    }`}
+                                    className={`w-12 h-12 rounded-xl text-sm font-semibold transition-all border cursor-pointer ${selectedSize === size
+                                        ? "bg-dark text-white border-dark shadow-sm"
+                                        : "bg-white text-dark border-gray-200 hover:border-dark"
+                                        }`}
                                 >
                                     {size}
                                 </button>
@@ -169,7 +179,7 @@ export default function ProductDetails() {
                     {/* Call to Action Buttons: Add to Cart & Buy Now */}
                     <div className="flex flex-col sm:flex-row gap-4 pt-2">
                         {/* Add to Cart Button */}
-                        <button className="flex-1 bg-primary text-dark font-bold py-4 px-6 rounded-xl hover:bg-primary/80 transition-all duration-200 shadow-sm hover:shadow cursor-pointer active:scale-[0.99]">
+                        <button onClick={handleAddToCart} className="flex-1 bg-primary text-dark font-bold py-4 px-6 rounded-xl hover:bg-primary/80 transition-all duration-200 shadow-sm hover:shadow cursor-pointer active:scale-[0.99]">
                             ADD TO CART
                         </button>
 
