@@ -5,7 +5,7 @@ import {
     increaseQuantity,
     dicreaseQuantity,
     clearCart,
-} from "../features/cart/cartSlice";
+} from "../cartSlice";
 
 export default function Cart() {
     // ==========================================

@@ -2,13 +2,13 @@ import { Link } from "react-router-dom"
 import { useSelector } from "react-redux"
 export default function Navbar() {
     const items = useSelector((state)=>(state.cart.items))
-    console.log(items.length);
+    
     const totalItemsCount = items.reduce((sum,item)=>sum+(item.quantity||1),0)
     
     return (
        
         <>
-    <nav className="fixed top-5 left-1/2 -translate-x-1/2 w-[90%] max-w-6xl flex items-center justify-between px-6 py-3 rounded-4xl bg-primary/40 backdrop-blur-lg  shadow-lg
+    <nav className="fixed top-5 left-1/2 -translate-x-1/2 w-[90%] max-w-6xl flex items-center justify-between px-6 py-3 rounded-4xl bg-primary/60 z-99
 ">
                 <div>
                     <a href="">

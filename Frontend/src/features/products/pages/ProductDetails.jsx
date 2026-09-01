@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { products } from "./Products";
+
 import { useDispatch } from "react-redux";
-import { addToCart,increaseQuantity,dicreaseQuantity } from "../features/cart/cartSlice";
+import { addToCart, increaseQuantity, dicreaseQuantity } from "../../cart/cartSlice";
 import { useEffect } from "react";
+import { useProduct } from "../hook/useProduct";
 
 export default function ProductDetails() {
     const dispatch = useDispatch();
@@ -12,12 +13,13 @@ export default function ProductDetails() {
     const [selectedSize, setSelectedSize] = useState('M');
     const [quantityCount, setQuantityCount] = useState(1);
 
+    const {handleGetProducts} = useProduct();
     // Extract product ID from URL params
     let { id } = useParams();
     id = Number(id);
 
     // Find product matching the URL id
-    const product = products.find(item => item.id === id);
+    const product = handleGetProducts();
 
     /* ========================================================
        EMPTY / NOT FOUND STATE
@@ -43,12 +45,9 @@ export default function ProductDetails() {
             </div>
         );
     }
-     
-     function handleAddToCart(){
-            dispatch(addToCart(product));
-            
-            
 
+    function handleAddToCart() {
+        dispatch(addToCart(product));
     }
 
     return (

@@ -46,7 +46,7 @@ export const createProduct = async (req, res) => {
 
 export const getProducts = async (req, res) => {
     try {
-        const product = await productModel.find();
+        const products = await productModel.find();
         res.status(200).json({
             products
         })

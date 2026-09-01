@@ -6,7 +6,7 @@ export default function ProductCard({ product }) {
     return (
         <>
             <div className=' flex flex-col rounded-4xl p-4 text-center'>
-                <img className='w-3xs h-3xs' src={product.image} alt="" />
+                <img className='w-3xs h-3xs' src={product.images?.[0]?.url||"https://tse3.mm.bing.net/th/id/OIP.mq1Bn-cPypfKB2-5DChDBwHaLH?r=0&pid=Api&P=0&h=180"} alt="" />
                 <p className='font-medium '>{product.title}</p>
 
                 <p className='line-clamp-2'> {product.description}</p>
