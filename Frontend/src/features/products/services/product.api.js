@@ -16,7 +16,10 @@ export async function getProducts() {
     return response.data;
 }
 
-
+export async function getProductByID(id) {
+    const response = await productApiInstance.get(`/${id}`)
+    return response.data;
+}
 
 
 

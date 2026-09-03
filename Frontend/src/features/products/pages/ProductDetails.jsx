@@ -12,14 +12,23 @@ export default function ProductDetails() {
     const sizes = ['S', 'M', 'L', 'XL', 'XXL'];
     const [selectedSize, setSelectedSize] = useState('M');
     const [quantityCount, setQuantityCount] = useState(1);
+      const [product, setProduct] = useState(null);
 
-    const {handleGetProducts} = useProduct();
+    const {handleGetProductByID} = useProduct();
     // Extract product ID from URL params
     let { id } = useParams();
-    id = Number(id);
+    // id = Number(id);
 
     // Find product matching the URL id
-    const product = handleGetProducts();
+    useEffect(()=>{
+        console.log("Running useEffect..."+id);
+        
+         if (!id) return;
+       handleGetProductByID(id)
+        .then((data)=>{
+            setProduct(data);
+        })
+    },[id])
 
     /* ========================================================
        EMPTY / NOT FOUND STATE
@@ -76,7 +85,7 @@ export default function ProductDetails() {
                    ------------------------------------------------------ */}
                 <div className="flex justify-center items-center bg-gray-50 rounded-2xl p-6 overflow-hidden border border-gray-100 group">
                     <img
-                        src={product.image}
+                        src={product.images?.[0]?.url||"https://tse3.mm.bing.net/th/id/OIP.mq1Bn-cPypfKB2-5DChDBwHaLH?r=0&pid=Api&P=0&h=180"}
                         alt={product.title}
                         className="w-full max-h-125 object-contain"
                     />

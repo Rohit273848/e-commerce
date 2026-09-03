@@ -129,7 +129,7 @@ export default function Product() {
     }, [])
 
 
-    console.log(Array.isArray(products));
+    // console.log(Array.isArray(products));
 
     const dispatch = useDispatch();
 

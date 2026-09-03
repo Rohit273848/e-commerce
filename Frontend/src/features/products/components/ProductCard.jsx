@@ -11,7 +11,7 @@ export default function ProductCard({ product }) {
 
                 <p className='line-clamp-2'> {product.description}</p>
                 <p className='font-bold'>₹ {product.price}</p>
-                <Link to={`/product/${product.id}`} className='bg-primary cursor-pointer w-full py-2 px-4'>Quick View</Link>
+                <Link to={`/product/${product._id}`} className='bg-primary cursor-pointer w-full py-2 px-4'>Quick View</Link>
             </div>
         </>
     )
