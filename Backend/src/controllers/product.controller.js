@@ -64,6 +64,7 @@ export const getProduct = async (req, res) => {
     try {
         const _id = req.params.id;
         const product = await productModel.findOne({ _id });
+        
         res.status(200).json({
             product
         })
@@ -73,5 +74,23 @@ export const getProduct = async (req, res) => {
             success: false,
             message: err.message,
         })
+    }
+}
+
+export const getSellerProduct = async(req,res)=>{
+    try{
+        const _id = req.params.id;
+        const product = await productModel.findOne({_id});
+        console.log(product);
+        
+        res.status(200).json({
+            product
+        })
+    } catch(err){
+    console.log("Seller product not found due to:",err);
+    res.status(500).json({
+        success:false,
+        message:err.message,
+    })
     }
 }

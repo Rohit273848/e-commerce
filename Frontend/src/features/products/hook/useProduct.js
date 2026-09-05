@@ -7,19 +7,24 @@ export const useProduct =()=>{
     const dispatch =  useDispatch();
 
     async function handleGetProducts() {
-        dispatch(setLoading(true));
-        const data = await getProducts();
-        // console.log(data.products);
-        dispatch(setProducts(data.products));
-        dispatch(setLoading(false));
+        try {
+            dispatch(setLoading(true));
+            const data = await getProducts();
+            dispatch(setProducts(data.products));
+        } finally {
+            dispatch(setLoading(false));
+        }
     }
 
     async function handleGetProductByID(id) {
-        dispatch(setLoading(true));
-        const data = await getProductByID(id);
-        console.log(data.product);
-        dispatch(setLoading(false));
-        return data.product;
+        try {
+            dispatch(setLoading(true));
+            const data = await getProductByID(id);
+            console.log(data.product);
+            return data.product;
+        } finally {
+            dispatch(setLoading(false));
+        }
     }
 
     return {handleGetProducts,handleGetProductByID};
