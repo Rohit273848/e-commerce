@@ -64,7 +64,7 @@ export const getProduct = async (req, res) => {
     try {
         const _id = req.params.id;
         const product = await productModel.findOne({ _id });
-        
+
         res.status(200).json({
             product
         })
@@ -77,20 +77,66 @@ export const getProduct = async (req, res) => {
     }
 }
 
-export const getSellerProduct = async(req,res)=>{
-    try{
+export const updateProduct = async (req, res) => {
+    try {
         const _id = req.params.id;
-        const product = await productModel.findOne({_id});
-        console.log(product);
-        
+        const { title, description, price, category, stock } = req.body;
+
+        const product = await productModel.findByIdAndUpdate(
+            _id,
+            {
+                title,
+                description,
+                price,
+                category,
+                stock
+            },
+            {  new: true ,
+                runValidators: true
+            },
+        );
+        if(!product){
+            res.status(404).json({
+                success:false,
+                message:"Product not found"
+            })
+        }
+
         res.status(200).json({
             product
         })
-    } catch(err){
-    console.log("Seller product not found due to:",err);
-    res.status(500).json({
-        success:false,
-        message:err.message,
-    })
+    } catch (err) {
+        console.log("Seller product not found due to:", err);
+        res.status(500).json({
+            success: false,
+            message: err.message,
+        })
+    }
+}
+
+export const deleteProduct = async (req,res)=>{
+    try{
+      const _id = req.params.id;
+
+        const product = await productModel.findByIdAndDelete(_id);
+
+        if (!product) {
+            return res.status(404).json({
+                success: false,
+                message: "Product not found"
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Product deleted successfully",
+            product
+        });
+    }catch(err){
+        console.log("Product not found of this seller");
+        res.status(500).json({
+            success:false,
+            message:err.message,
+        })        
     }
 }
