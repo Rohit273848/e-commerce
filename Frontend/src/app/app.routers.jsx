@@ -4,6 +4,8 @@ import Products from "../features/products/pages/Products";
 import Layout from "../features/products/pages/Layout";
 import ProductDetails from "../features/products/pages/ProductDetails";
 import Cart from "../features/cart/pages/Cart.jsx";
+import Dashboard from "../features/Seller_Side/pages/Dashboard.jsx";
+import SellerLayout from "../features/Seller_Side/pages/SellerLayout.jsx";
 
 export const router = createBrowserRouter([
 	{
@@ -27,5 +29,15 @@ export const router = createBrowserRouter([
 	{
 		path: "cart",
 		element: <Cart />
+	},
+	{
+		path:"/seller",
+		element:<SellerLayout/>,
+		children:[
+			{
+				index: true,
+				element:<Dashboard/>
+			}
+		]
 	}
 ])
