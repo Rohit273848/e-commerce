@@ -21,7 +21,7 @@ export default function SellerNav() {
     ];
 
     return (
-        <aside className="w-64 h-screen sticky top-0 bg-dark text-white flex flex-col justify-between p-5 pr-0 shadow-lg">
+        <aside className="w-35 h-screen sticky top-0 bg-dark text-white flex flex-col justify-between p-5 pr-0 shadow-lg">
             {/* Top Section: Brand & Navigation */}
               {/* Brand Header */}
                 <div className="text-center py-3 mb-6 border-b border-gray-700">

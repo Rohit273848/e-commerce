@@ -6,6 +6,7 @@ import ProductDetails from "../features/products/pages/ProductDetails";
 import Cart from "../features/cart/pages/Cart.jsx";
 import Dashboard from "../features/Seller_Side/pages/Dashboard.jsx";
 import SellerLayout from "../features/Seller_Side/pages/SellerLayout.jsx";
+import SellerProducts from "../features/Seller_Side/pages/SellerProducts.jsx";
 
 export const router = createBrowserRouter([
 	{
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
 			{
 				index: true,
 				element:<Dashboard/>
+			},
+			{
+				path:"products",
+				element:<SellerProducts/>
 			}
 		]
 	}

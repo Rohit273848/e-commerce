@@ -14,9 +14,16 @@ const productSlice = createSlice({
         },
         setLoading: (state, action) => {
             state.loading = action.payload;
-        }
+        },
+        // Filter out the deleted product by its _id
+        removeProduct: (state, action) => {
+            const idToDelete = action.payload;
+            state.products = state.products.filter(
+                (product) => product._id !== idToDelete
+            );
+        },
     }
 })
 
-export const { setLoading, setProducts } = productSlice.actions;
+export const { setLoading, setProducts,removeProduct } = productSlice.actions;
 export default productSlice.reducer;
